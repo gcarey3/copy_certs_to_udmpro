@@ -9,13 +9,13 @@
 # Call this from cron once in a while to make sure your cert stays updated.
 # Not too often though as it restarts the whole network container which isn't very desireable.
 #
-# Be sure to change the location of the cert files and the IP address of the UDM-PRO as needed for your situation.
+# Be sure to change the names/locations of the cert files and the IP address of the UDM-PRO as needed for your situation.
 #
 
-# First copy the full chain (*.montco.net and the intermediate)
+# First copy the full chain (*.yourdomain.com and the intermediate)
 /bin/scp /etc/letsencrypt/live/yourdomain.com/fullchain.pem root@192.168.1.1:/mnt/data/unifi-os/unifi-core/config/unifi-core.crt
 
-# Next copy the private key for *.montco.net
+# Next copy the private key for *.yourdomain.com
 /bin/scp /etc/letsencrypt/live/yourdomain.com/privkey.pem root@192.168.1.1:/mnt/data/unifi-os/unifi-core/config/unifi-core.key
 
 # Build a pkcs12 version of the cert that contains the cert, intermediate cert, and the key
